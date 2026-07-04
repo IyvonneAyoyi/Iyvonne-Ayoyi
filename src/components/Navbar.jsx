@@ -68,13 +68,19 @@ const links = [
         variants={navVariants}
         initial="hidden"
         animate="visible"
-        className="relative w-[95%] sm:w-[90%] md:w-[85%] lg:w-[80%] 
-        xl:w-[75%] mx-auto z-50 mt-6">
-            <div className={`relative rounded-4xl
-                ${shadow 
-                ? 'shadow-[0_0_20px_rgb(34_211_238)]' 
-                : ''
-            } dark:bg-black/50 bg-white/80`}>
+        className="fixed top-6 left-0 right-0 w-[95%] sm:w-[90%] md:w-[85%] lg:w-[80%] 
+xl:w-[75%] mx-auto z-50">
+            <div
+  className={`relative rounded-4xl
+    ${shadow
+      ? 'shadow-[0_0_20px_rgb(34_211_238)]'
+      : ''
+    }
+    bg-slate-100/90
+    dark:bg-black/50
+    backdrop-blur-md
+    border border-slate-200 dark:border-slate-700`}
+>
             <div className="flex justify-between items-center w-full
             h-16 sm:h-20 px-4 sm:px-6 md:px-8">
                 <motion.a
