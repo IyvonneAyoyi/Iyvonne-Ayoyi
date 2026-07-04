@@ -65,37 +65,37 @@ const links = [
     return (
     <>
         <motion.div
-        variants={navVariants}
-        initial="hidden"
-        animate="visible"
-       className="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] sm:w-[90%] md:w-[85%] lg:w-[80%] xl:w-[75%] z-50">
+  variants={navVariants}
+  initial="hidden"
+  animate="visible"
+  className="fixed top-0 left-0 w-full z-50 px-6 md:px-10 py-4">
             
             <div
-  className={`relative rounded-4xl
-    ${shadow
-      ? 'shadow-[0_0_20px_rgb(34_211_238)]'
-      : ''
+  className={`w-full rounded-4xl
+    ${
+      shadow
+        ? "shadow-[0_0_20px_rgb(34_211_238)]"
+        : ""
     }
     bg-slate-100/90
     dark:bg-black/50
     backdrop-blur-md
-    border border-slate-200 dark:border-slate-700`}
->
-            <div className="flex justify-between items-center w-full
-            h-16 sm:h-20 px-4 sm:px-6 md:px-8">
-                <motion.a
-                href="#home"
-                whileHover={{scale:1.05}}
-                whileTap={{scale:0.95}}
-                className="text-xl sm:text-2xl md:text-3xl font-bold">
-                    <span className="text-cyan-400">Iyvonne </span>
-                    <span 
-                className="text-slate-400 dark:text-slate-100">
-                    Ayoyi</span>
+    border border-slate-200 dark:border-slate-700`}>
 
-                </motion.a>
-                <ul className="hidden md:flex items-center
-                space-x-4 lg:space-x-8">
+            <div className="flex items-center h-16 sm:h-20 px-6 md:px-10">
+                <div className="flex flex-1 justify-start">
+                <motion.a
+              href="#home"
+              whileTap={{ scale: 0.95 }}
+              className="inline-block text-xl sm:text-2xl md:text-3xl font-bold">
+            <span className="text-cyan-400">Iyvonne </span>
+            <span className="text-slate-400 dark:text-slate-100">
+                    Ayoyi
+            </span>
+               </motion.a>
+                </div>
+                <div className="hidden md:flex flex-1 justify-center">
+                <ul className="flex items-center gap-10 lg:gap-14">
                     {links.map(({id,link,text})=>(
                         <motion.li
                         key={id}
@@ -112,14 +112,14 @@ const links = [
                         </motion.li>
                     ))}
                 </ul>
-            <div className="hidden md:flex items-center space-x-2
-            lg:space-x-4">
+                </div>
+            <div className="hidden md:flex flex-1 justify-end">
                 <ThemeToggle
     darkMode={darkMode}
     toggleDarkMode={toggleDarkMode}
 />
             </div>
-            <div className="flex md:hidden items-center space-x-2">
+            <div className="flex md:hidden ml-auto items-center space-x-3">
                 <ThemeToggle
     darkMode={darkMode}
     toggleDarkMode={toggleDarkMode}
