@@ -68,8 +68,8 @@ const links = [
         variants={navVariants}
         initial="hidden"
         animate="visible"
-        className="fixed top-6 left-0 right-0 w-[95%] sm:w-[90%] md:w-[85%] lg:w-[80%] 
-xl:w-[75%] mx-auto z-50">
+       className="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] sm:w-[90%] md:w-[85%] lg:w-[80%] xl:w-[75%] z-50">
+            
             <div
   className={`relative rounded-4xl
     ${shadow
