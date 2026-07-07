@@ -36,6 +36,20 @@ const links = [
         window.addEventListener('scroll', handleShadow);
             return () => window.removeEventListener('scroll', handleShadow);
     }, []);
+
+    useEffect(() => {
+  const handleResize = () => {
+    if (window.innerWidth >= 768) {
+      setNav(false);
+    }
+  };
+
+  window.addEventListener("resize", handleResize);
+
+  return () => {
+    window.removeEventListener("resize", handleResize);
+  };
+}, []);
     
     const toggleDarkMode = () => {
         setDarkMode(prev => !prev);
@@ -71,18 +85,18 @@ const links = [
   className="fixed top-0 left-0 w-full z-50 px-6 md:px-10 py-4">
             
             <div
-  className={`w-full rounded-4xl
+  className={`w-full rounded-4xl transition-all duration-300
     ${
       shadow
-        ? "shadow-[0_0_20px_rgb(34_211_238)]"
-        : ""
+        ? "py-1 shadow-[0_0_20px_rgb(34_211_238)]"
+        : "py-3"
     }
     bg-slate-100/90
     dark:bg-black/50
     backdrop-blur-md
     border border-slate-200 dark:border-slate-700`}>
 
-            <div className="flex items-center h-16 sm:h-20 px-6 md:px-10">
+            <div className="flex items-center h-14 sm:h-16 px-6 md:px-10 transition-all duration-300">
                 <div className="flex flex-1 justify-start">
                 <motion.a
               href="#home"
@@ -139,12 +153,18 @@ const links = [
             {nav && (
                 <>
                 <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={() => setNav(false)}
+        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30"/>
+                <motion.div
                 variants={mobileMenuVariants}
                 initial="hidden"
                 animate="visible"
                 exit="exit"
                 className="fixed top-0 left-0 w-72 sm:w-[320px] 
-                h-screen bg-white dark:bg-black z-40 pt-20
+                h-screen bg-white dark:bg-black z-50 pt-20
                 shadow-xl">
                     <div className="flex flex-col h-full">
                         <ul className="flex-1 py-6 px-4">
