@@ -6,7 +6,7 @@ function App() {
     <div className="min-h-screen bg-slate-100 dark:bg-slate-900 transition-colors duration-300">
       <Navbar />
 
-      <main>
+      <main  className="pt-24 lg:pt-20">
         <Hero />
       </main>
     </div>
