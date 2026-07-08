@@ -1,7 +1,42 @@
 import { motion } from "framer-motion";
 import profile from "../assets/iyvonne.png";
-import { FaMapMarkerAlt } from "react-icons/fa";
+import { FaMapMarkerAlt, FaShieldAlt, FaBookOpen, FaUsers,FaGlobeAfrica, } from "react-icons/fa";
 
+
+const coreValues = [
+  {
+    title: "Integrity",
+    icon: FaShieldAlt,
+    color: "text-cyan-400",
+    bg: "bg-cyan-500/10",
+    description:
+      "I believe in producing reliable, ethical, and high-quality work. Trust, accountability, and professionalism guide every project I undertake.",
+  },
+  {
+    title: "Continuous Learning",
+    icon: FaBookOpen,
+    color: "text-violet-400",
+    bg: "bg-violet-500/10",
+    description:
+      "Technology evolves rapidly, and I embrace every opportunity to expand my knowledge while continuously improving my technical and professional skills.",
+  },
+  {
+    title: "Collaboration",
+    icon: FaUsers,
+    color: "text-cyan-400",
+    bg: "bg-cyan-500/10",
+    description:
+      "Great solutions are built together. I value teamwork, communication, knowledge sharing, and learning from diverse perspectives.",
+  },
+  {
+    title: "Impact",
+    icon: FaGlobeAfrica,
+    color: "text-violet-400",
+    bg: "bg-violet-500/10",
+    description:
+      "My goal is to create technology that solves meaningful challenges, empowers informed decision-making, and positively impacts communities.",
+  },
+];
 const About = () => {
   return (
     <section
@@ -93,9 +128,9 @@ const About = () => {
                 </p>
                 
                 <div className="mt-5 flex items-center justify-center gap-2 text-slate-600 dark:text-slate-300">
-  <FaMapMarkerAlt className="text-cyan-400" />
-  <span>Based in Nairobi, Kenya</span>
-</div>
+                <FaMapMarkerAlt className="text-cyan-400" />
+                <span>Based in Nairobi, Kenya</span>
+                </div>
 
                 <p className="mt-6 text-slate-600 dark:text-slate-300 leading-8">
                   Building impactful digital solutions through geospatial
@@ -175,130 +210,48 @@ const About = () => {
           </div>
 
           <div
-            className="
-              grid
-              grid-cols-1
-              sm:grid-cols-2
-              xl:grid-cols-4
-              gap-6
-            "
-          >
-            {/* Integrity */}
-            <motion.div
-              whileHover={{ y: -8 }}
-              transition={{ duration: 0.25 }}
-              className="
-                rounded-3xl
-                bg-white/5
-                backdrop-blur-md
-                border
-                border-slate-700
-                p-7
-                shadow-xl
-              "
-            >
-              <div className="w-14 h-14 rounded-2xl bg-cyan-500/10 flex items-center justify-center mb-6">
-                <span className="text-2xl">🛡️</span>
-              </div>
+  className="
+    grid
+    grid-cols-1
+    sm:grid-cols-2
+    xl:grid-cols-4
+    gap-6
+  ">
+  {coreValues.map((value) => {
+    const Icon = value.icon;
 
-              <h4 className="text-xl font-semibold text-cyan-400 mb-4">
-                Integrity
-              </h4>
+    return (
+      <motion.div
+        key={value.title}
+        whileHover={{ y: -8 }}
+        transition={{ duration: 0.25 }}
+        className="
+          rounded-3xl
+          bg-white/5
+          backdrop-blur-md
+          border
+          border-slate-700
+          p-7
+          shadow-xl
+        "
+      >
+        <div
+          className={`w-14 h-14 rounded-2xl ${value.bg} flex items-center justify-center mb-6`}
+        >
+          <Icon className={`${value.color} text-2xl`} />
+        </div>
 
-              <p className="text-slate-600 dark:text-slate-300 leading-8">
-                I believe in producing reliable, ethical, and high-quality work.
-                Trust, accountability, and professionalism guide every project I
-                undertake.
-              </p>
-            </motion.div>
+        <h4 className={`text-xl font-semibold ${value.color} mb-4`}>
+          {value.title}
+        </h4>
 
-            {/* Continuous Learning */}
-            <motion.div
-              whileHover={{ y: -8 }}
-              transition={{ duration: 0.25 }}
-              className="
-                rounded-3xl
-                bg-white/5
-                backdrop-blur-md
-                border
-                border-slate-700
-                p-7
-                shadow-xl
-              "
-            >
-              <div className="w-14 h-14 rounded-2xl bg-violet-500/10 flex items-center justify-center mb-6">
-                <span className="text-2xl">📚</span>
-              </div>
-
-              <h4 className="text-xl font-semibold text-violet-400 mb-4">
-                Continuous Learning
-              </h4>
-
-              <p className="text-slate-600 dark:text-slate-300 leading-8">
-                Technology evolves rapidly, and I embrace every opportunity to
-                expand my knowledge and continuously improve my technical and
-                professional skills.
-              </p>
-            </motion.div>
-
-            {/* Collaboration */}
-            <motion.div
-              whileHover={{ y: -8 }}
-              transition={{ duration: 0.25 }}
-              className="
-                rounded-3xl
-                bg-white/5
-                backdrop-blur-md
-                border
-                border-slate-700
-                p-7
-                shadow-xl
-              "
-            >
-              <div className="w-14 h-14 rounded-2xl bg-cyan-500/10 flex items-center justify-center mb-6">
-                <span className="text-2xl">🤝</span>
-              </div>
-
-              <h4 className="text-xl font-semibold text-cyan-400 mb-4">
-                Collaboration
-              </h4>
-
-              <p className="text-slate-600 dark:text-slate-300 leading-8">
-                Great solutions are built together. I value teamwork,
-                communication, knowledge sharing, and learning from diverse
-                perspectives.
-              </p>
-            </motion.div>
-
-            {/* Impact */}
-            <motion.div
-              whileHover={{ y: -8 }}
-              transition={{ duration: 0.25 }}
-              className="
-                rounded-3xl
-                bg-white/5
-                backdrop-blur-md
-                border
-                border-slate-700
-                p-7
-                shadow-xl
-              "
-            >
-              <div className="w-14 h-14 rounded-2xl bg-violet-500/10 flex items-center justify-center mb-6">
-                <span className="text-2xl">🌍</span>
-              </div>
-
-              <h4 className="text-xl font-semibold text-violet-400 mb-4">
-                Impact
-              </h4>
-
-              <p className="text-slate-600 dark:text-slate-300 leading-8">
-                My goal is to create technology that solves meaningful
-                challenges, empowers informed decision-making, and contributes
-                positively to communities and organizations.
-              </p>
-            </motion.div>
-          </div>
+        <p className="text-slate-600 dark:text-slate-300 leading-8">
+          {value.description}
+        </p>
+      </motion.div>
+    );
+  })}
+</div>
         </motion.div>
       </div>
     </section>
