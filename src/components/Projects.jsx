@@ -66,7 +66,7 @@ const projects = {
       image: watershed,
 
       description:
-        "Delineated the Kilonzi Catchment using ArcMap hydrology tools from a DEM to generate drainage networks and watershed boundaries for water resource analysis.",
+        "Delineated the Kilonzi Catchment in ArcMap using a Digital Elevation Model (DEM) and ArcGIS Hydrology tools to derive flow direction, flow accumulation, stream networks, and watershed boundaries. This project demonstrates the use of terrain analysis to support watershed characterization and informed water resource management.",
 
       tech: [
         "ArcMap",
@@ -75,7 +75,7 @@ const projects = {
         "Hydrology",
       ],
 
-      demo: "",
+      demo: watershed,
       github: "",
     },
   ],
