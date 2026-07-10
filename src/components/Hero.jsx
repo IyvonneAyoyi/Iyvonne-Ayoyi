@@ -128,7 +128,7 @@ const Hero = () => {
                 transition
               "
             >
-              Contact Me
+              Hire Me
               <FaArrowRight size={14} />
             </a>
 
