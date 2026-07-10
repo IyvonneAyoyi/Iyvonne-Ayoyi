@@ -1,5 +1,8 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import About from "./components/About";
+import Skills from "./components/Skills";
+
 
 function App() {
   return (
@@ -8,6 +11,8 @@ function App() {
 
       <main  className="pt-24 lg:pt-20">
         <Hero />
+        <About />
+        <Skills />
       </main>
     </div>
   );
