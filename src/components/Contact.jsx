@@ -46,22 +46,17 @@ export default function Contact() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white">Get In Touch</h2>
           <div className="mx-auto mt-5 h-1 w-28 rounded-full bg-linear-to-r from-cyan-500 to-violet-600" />
           <p className="mt-6 max-w-2xl mx-auto text-base sm:text-lg leading-8 text-slate-600 dark:text-slate-300">
-            Have a project, collaboration, or opportunity in mind? Let's create something meaningful together.
+            Looking for a developer with expertise in geospatial technology, data science, and modern web development? Let's discuss how we can bring your ideas to life.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
           <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.75 }} className="lg:col-span-2">
-            <p className="text-slate-600 dark:text-slate-300 leading-8 mb-8">
-              Whether you need frontend development, GIS solutions, geospatial analysis, or data-driven insights, I'd love to hear about your project.
+            <p className="text-slate-600 dark:text-slate-300 leading-8 mb-10">
+           My work brings together geospatial technology, data science, AI, machine learning, and modern web development to transform complex data into meaningful
+           insights and impactful digital solutions.
             </p>
 
-            <div className="flex flex-wrap gap-3 mb-8">
-              <span className="inline-flex items-center rounded-full bg-cyan-500/10 px-4 py-2 text-sm font-semibold text-cyan-500">Frontend Development</span>
-              <span className="inline-flex items-center rounded-full bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-400">GIS Solutions</span>
-              <span className="inline-flex items-center rounded-full bg-cyan-500/10 px-4 py-2 text-sm font-semibold text-cyan-500">Geospatial Analysis</span>
-              <span className="inline-flex items-center rounded-full bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-400">Data Science</span>
-            </div>
 
             <div className="grid grid-cols-3 gap-3 lg:flex lg:flex-col lg:gap-3 mb-6">
               <a href="mailto:iyvonneayoyi@gmail.com" className="flex flex-col items-center text-center gap-3 p-3 rounded-xl bg-white/5 border border-slate-700 hover:border-cyan-400 transition-all group lg:flex-row lg:text-left lg:gap-3">
