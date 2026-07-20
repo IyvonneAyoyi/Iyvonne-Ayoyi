@@ -18,7 +18,7 @@ export default function Contact() {
     service: "",
     message: "",
   })
-  const [submitStatus, setSubmitStatus] = useState("")
+  
 
   const handleChange = (event) => {
     const { name, value } = event.target
@@ -28,48 +28,12 @@ export default function Contact() {
     }))
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    setSubmitStatus("")
-
-    const formValues = {
-      name: formData.name,
-      email: formData.email,
-      service: formData.service,
-      message: formData.message,
-      _subject: `New message from ${formData.name || "a visitor"}`,
-      _captcha: "false",
-    }
-
-    const tempForm = document.createElement("form")
-    tempForm.method = "POST"
-    tempForm.action = "https://formsubmit.co/22c3e94ba33c4d80923a862241cffa77"
-    tempForm.target = "_blank"
-    tempForm.style.display = "none"
-
-    Object.entries(formValues).forEach(([name, value]) => {
-      const input = document.createElement("input")
-      input.type = "hidden"
-      input.name = name
-      input.value = value
-      tempForm.appendChild(input)
-    })
-
-    document.body.appendChild(tempForm)
-    tempForm.submit()
-    document.body.removeChild(tempForm)
-
-    setFormData({
-      name: "",
-      email: "",
-      service: "",
-      message: "",
-    })
-    setSubmitStatus("Thank you! Your message has been sent successfully.")
-
+  const handleSubmit = () => {
+    // Allow the native form submit to open the new tab (FormSubmit).
+    // Clear the controlled inputs shortly after submitting so the form fields reset.
     setTimeout(() => {
-      setSubmitStatus("")
-    }, 5000)
+      setFormData({ name: "", email: "", service: "", message: "" })
+    }, 700)
   }
 
   return (
@@ -99,23 +63,29 @@ export default function Contact() {
               <span className="inline-flex items-center rounded-full bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-400">Data Science</span>
             </div>
 
-            <div className="grid grid-cols-3 gap-3">
-              <a href="mailto:iyvonneayoyi@gmail.com" className="group overflow-hidden rounded-xl border border-slate-700 bg-white/5 backdrop-blur-md p-3 transition-all duration-300 hover:border-cyan-400">
-                <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400"><FaEnvelope size={16} /></div>
-                <p className="text-xs text-slate-500 dark:text-slate-400">Email</p>
-                <p className="text-xs font-medium text-slate-900 dark:text-white">iyvonneayoyi@gmail.com</p>
+            <div className="grid grid-cols-3 gap-3 lg:flex lg:flex-col lg:gap-3 mb-6">
+              <a href="mailto:iyvonneayoyi@gmail.com" className="flex flex-col items-center text-center gap-3 p-3 rounded-xl bg-white/5 border border-slate-700 hover:border-cyan-400 transition-all group lg:flex-row lg:text-left lg:gap-3">
+                <div className="w-9 h-9 rounded-full bg-cyan-500/10 flex items-center justify-center shrink-0"><FaEnvelope size={16} className="text-cyan-400" /></div>
+                <div className="min-w-0 w-full space-y-0">
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Email</p>
+                  <p className="text-sm font-medium text-slate-900 dark:text-white truncate group-hover:text-cyan-400">iyvonneayoyi@gmail.com</p>
+                </div>
               </a>
 
-              <a href="https://www.linkedin.com/in/iyvonne-ayoyi-a265192a9" target="_blank" rel="noreferrer" className="group overflow-hidden rounded-xl border border-slate-700 bg-white/5 backdrop-blur-md p-3 transition-all duration-300 hover:border-cyan-400">
-                <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400"><FaLinkedin size={16} /></div>
-                <p className="text-xs text-slate-500 dark:text-slate-400">LinkedIn</p>
-                <p className="text-xs font-medium text-slate-900 dark:text-white">Iyvonne Ayoyi</p>
+              <a href="https://www.linkedin.com/in/iyvonne-ayoyi-a265192a9" target="_blank" rel="noreferrer" className="flex flex-col items-center text-center gap-3 p-3 rounded-xl bg-white/5 border border-slate-700 hover:border-cyan-400 transition-all group lg:flex-row lg:text-left lg:gap-3">
+                <div className="w-9 h-9 rounded-full bg-cyan-500/10 flex items-center justify-center shrink-0"><FaLinkedin size={16} className="text-cyan-400" /></div>
+                <div className="min-w-0 w-full space-y-0">
+                  <p className="text-xs text-slate-500 dark:text-slate-400">LinkedIn</p>
+                  <p className="text-sm font-medium text-slate-900 dark:text-white truncate group-hover:text-cyan-400">Iyvonne Ayoyi</p>
+                </div>
               </a>
 
-              <div className="overflow-hidden rounded-xl border border-slate-700 bg-white/5 backdrop-blur-md p-3">
-                <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400"><FaMapMarkerAlt size={16} /></div>
-                <p className="text-xs text-slate-500 dark:text-slate-400">Location</p>
-                <p className="text-xs font-medium text-slate-900 dark:text-white">Nairobi, Kenya</p>
+              <div className="flex flex-col items-center text-center gap-3 p-3 rounded-xl bg-white/5 border border-slate-700 hover:border-cyan-400 transition-all lg:flex-row lg:text-left lg:gap-3">
+                <div className="w-9 h-9 rounded-full bg-cyan-500/10 flex items-center justify-center shrink-0"><FaMapMarkerAlt size={16} className="text-cyan-400" /></div>
+                <div className="min-w-0 w-full space-y-0">
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Location</p>
+                  <p className="text-sm font-medium text-slate-900 dark:text-white truncate">Nairobi, Kenya</p>
+                </div>
               </div>
             </div>
 
@@ -138,53 +108,39 @@ export default function Contact() {
           <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.75 }} className="lg:col-span-3">
             <div className="rounded-3xl border border-slate-700 bg-white/5 backdrop-blur-md p-8 shadow-2xl shadow-slate-900/5">
               <h3 className="text-2xl font-semibold text-slate-900 dark:text-white mb-8">Send a Message</h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form action="https://formsubmit.co/iyvonneayoyi@gmail.com" method="POST" target="_blank" onSubmit={handleSubmit} autoComplete="off" className="space-y-6">
                 <input type="hidden" name="_captcha" value="false" />
 
                 <div>
                   <label htmlFor="name" className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-300">Your Name</label>
-                  <input id="name" name="name" type="text" value={formData.name} onChange={handleChange} placeholder="Enter your name" className="w-full rounded-xl border border-slate-700 bg-transparent px-4 py-3 text-slate-900 dark:text-white transition focus:border-cyan-400 focus:outline-none" />
+                  <input id="name" name="name" type="text" value={formData.name} onChange={handleChange} placeholder="Enter your name" autoComplete="name" required className="w-full rounded-xl border border-slate-700 bg-transparent px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-400 transition focus:border-cyan-400 focus:outline-none autofill:bg-transparent autofill:text-slate-900 dark:autofill:text-white" style={{ backgroundColor: 'transparent', WebkitBoxShadow: '0 0 0px 1000px transparent inset', boxShadow: '0 0 0px 1000px transparent inset' }} />
                 </div>
 
                 <div>
                   <label htmlFor="email" className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-300">Email Address</label>
-                  <input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="you@example.com" className="w-full rounded-xl border border-slate-700 bg-transparent px-4 py-3 text-slate-900 dark:text-white transition focus:border-cyan-400 focus:outline-none" />
+                  <input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="you@example.com" autoComplete="email" required className="w-full rounded-xl border border-slate-700 bg-transparent px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-400 transition focus:border-cyan-400 focus:outline-none autofill:bg-transparent autofill:text-slate-900 dark:autofill:text-white" style={{ backgroundColor: 'transparent', WebkitBoxShadow: '0 0 0px 1000px transparent inset', boxShadow: '0 0 0px 1000px transparent inset' }} />
                 </div>
 
                 <div>
                   <label htmlFor="service" className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-300">Service</label>
-                  <input
-                    id="service"
-                    name="service"
-                    type="text"
-                    value={formData.service}
-                    onChange={handleChange}
-                    placeholder="Select a service"
-                    list="service-options"
-                    className="w-full rounded-xl border border-slate-700 bg-transparent px-4 py-3 text-slate-900 dark:text-white transition focus:border-cyan-400 focus:outline-none"
-                  />
-                  <datalist id="service-options">
+                  <select id="service" name="service" value={formData.service} onChange={handleChange} required className={`w-full appearance-none rounded-xl border border-slate-700 bg-transparent px-4 py-3 transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/25 focus:outline-none ${formData.service ? 'text-slate-900 dark:text-white' : 'text-slate-400 dark:text-slate-400'}`}>
+                    <option value="" disabled hidden>Select a service</option>
                     {serviceOptions.map((option) => (
-                      <option key={option} value={option} />
+                      <option key={option} value={option} className="bg-slate-50 text-slate-900 dark:bg-[#030712] dark:text-white">{option}</option>
                     ))}
-                  </datalist>
+                  </select>
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-300">Message</label>
-                  <textarea id="message" name="message" rows="6" value={formData.message} onChange={handleChange} placeholder="Tell me about your project..." className="w-full rounded-xl border border-slate-700 bg-transparent px-4 py-3 text-slate-900 dark:text-white transition focus:border-cyan-400 focus:outline-none resize-none" />
+                  <textarea id="message" name="message" rows="6" value={formData.message} onChange={handleChange} placeholder="Tell me about your project..." required className="w-full rounded-xl border border-slate-700 bg-transparent px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-400 transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/25 focus:outline-none resize-none" />
                 </div>
 
-                {submitStatus && (
-                  <p className={`text-sm px-4 py-3 rounded-lg ${submitStatus.includes("successfully") ? "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400" : "bg-red-500/10 text-red-600 dark:text-red-400"}`}>
-                    {submitStatus}
-                  </p>
-                )}
-
-                <button type="submit" className="inline-flex items-center justify-center gap-3 rounded-2xl bg-linear-to-r from-cyan-500 to-violet-600 px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90">
+                <button type="submit" className="inline-flex items-center justify-center gap-3 rounded-2xl bg-linear-to-r from-cyan-500 to-violet-600 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 active:scale-95">
                   <FaPaperPlane />
                   Send Message
                 </button>
+                {/* Form will open in a new tab; inputs are cleared after submit */}
               </form>
             </div>
           </motion.div>
