@@ -99,29 +99,38 @@ export default function Contact() {
               <span className="inline-flex items-center rounded-full bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-400">Data Science</span>
             </div>
 
-            <div className="grid gap-4">
-              <a href="mailto:iyvonneayoyi@gmail.com" className="group overflow-hidden rounded-2xl border border-slate-700 bg-white/5 backdrop-blur-md p-5 transition-all duration-300 hover:border-cyan-400 hover:-translate-y-1">
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-400"><FaEnvelope size={20} /></div>
-                <p className="text-sm text-slate-500 dark:text-slate-400">Email</p>
-                <p className="mt-1 font-medium text-slate-900 dark:text-white">iyvonneayoyi@gmail.com</p>
+            <div className="grid grid-cols-3 gap-3">
+              <a href="mailto:iyvonneayoyi@gmail.com" className="group overflow-hidden rounded-xl border border-slate-700 bg-white/5 backdrop-blur-md p-3 transition-all duration-300 hover:border-cyan-400">
+                <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400"><FaEnvelope size={16} /></div>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Email</p>
+                <p className="text-xs font-medium text-slate-900 dark:text-white">iyvonneayoyi@gmail.com</p>
               </a>
 
-              <a href="https://www.linkedin.com/in/iyvonne-ayoyi-a265192a9" target="_blank" rel="noreferrer" className="group overflow-hidden rounded-2xl border border-slate-700 bg-white/5 backdrop-blur-md p-5 transition-all duration-300 hover:border-cyan-400 hover:-translate-y-1">
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-400"><FaLinkedin size={20} /></div>
-                <p className="text-sm text-slate-500 dark:text-slate-400">LinkedIn</p>
-                <p className="mt-1 font-medium text-slate-900 dark:text-white">Iyvonne Ayoyi</p>
+              <a href="https://www.linkedin.com/in/iyvonne-ayoyi-a265192a9" target="_blank" rel="noreferrer" className="group overflow-hidden rounded-xl border border-slate-700 bg-white/5 backdrop-blur-md p-3 transition-all duration-300 hover:border-cyan-400">
+                <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400"><FaLinkedin size={16} /></div>
+                <p className="text-xs text-slate-500 dark:text-slate-400">LinkedIn</p>
+                <p className="text-xs font-medium text-slate-900 dark:text-white">Iyvonne Ayoyi</p>
               </a>
 
-              <a href="https://github.com/IyvonneAyoyi" target="_blank" rel="noreferrer" className="group overflow-hidden rounded-2xl border border-slate-700 bg-white/5 backdrop-blur-md p-5 transition-all duration-300 hover:border-cyan-400 hover:-translate-y-1">
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-400"><FaGithub size={20} /></div>
-                <p className="text-sm text-slate-500 dark:text-slate-400">GitHub</p>
-                <p className="mt-1 font-medium text-slate-900 dark:text-white">IyvonneAyoyi</p>
-              </a>
+              <div className="overflow-hidden rounded-xl border border-slate-700 bg-white/5 backdrop-blur-md p-3">
+                <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400"><FaMapMarkerAlt size={16} /></div>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Location</p>
+                <p className="text-xs font-medium text-slate-900 dark:text-white">Nairobi, Kenya</p>
+              </div>
+            </div>
 
-              <div className="group overflow-hidden rounded-2xl border border-slate-700 bg-white/5 backdrop-blur-md p-5 transition-all duration-300 hover:border-cyan-400 hover:-translate-y-1">
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-400"><FaMapMarkerAlt size={20} /></div>
-                <p className="text-sm text-slate-500 dark:text-slate-400">Location</p>
-                <p className="mt-1 font-medium text-slate-900 dark:text-white">Nairobi, Kenya</p>
+            <div className="mt-6 flex items-center justify-center gap-3">
+              <p className="text-sm font-medium text-slate-700 dark:text-slate-300 whitespace-nowrap">Follow me:</p>
+              <div className="flex gap-4">
+                <a href="mailto:iyvonneayoyi@gmail.com" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-400 transition hover:bg-cyan-500/20 hover:text-cyan-300">
+                  <FaEnvelope size={18} />
+                </a>
+                <a href="https://www.linkedin.com/in/iyvonne-ayoyi-a265192a9" target="_blank" rel="noreferrer" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-400 transition hover:bg-cyan-500/20 hover:text-cyan-300">
+                  <FaLinkedin size={18} />
+                </a>
+                <a href="https://github.com/IyvonneAyoyi" target="_blank" rel="noreferrer" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-400 transition hover:bg-cyan-500/20 hover:text-cyan-300">
+                  <FaGithub size={18} />
+                </a>
               </div>
             </div>
           </motion.div>
