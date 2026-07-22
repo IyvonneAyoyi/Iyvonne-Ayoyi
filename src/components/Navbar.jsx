@@ -7,6 +7,7 @@ import {FaBars,FaTimes } from 'react-icons/fa'
 const Navbar = () => {
 const [nav, setNav] = useState(false);
 const [shadow, setShadow] = useState(false);
+const [activeSection, setActiveSection] = useState("home");
 
 const [darkMode, setDarkMode] = useState(() => {
     const saved = localStorage.getItem("darkMode");
@@ -29,7 +30,7 @@ const links = [
     localStorage.setItem('darkMode', JSON.stringify(darkMode));
     }, [darkMode]);
 
-    useEffect(() => {
+useEffect(() => {
         const handleShadow = () => {
         setShadow(window.scrollY >= 90);
     };
@@ -44,6 +45,8 @@ const links = [
     }
   };
 
+  
+
   window.addEventListener("resize", handleResize);
 
   return () => {
@@ -51,6 +54,31 @@ const links = [
   };
 }, []);
     
+useEffect(() => {
+  const handleScroll = () => {
+    const sections = document.querySelectorAll(
+      "#home, #about, #skills, #projects, #contact"
+    );
+
+    const scrollPosition = window.scrollY + 150;
+
+    for (const section of sections) {
+      if (
+        scrollPosition >= section.offsetTop &&
+        scrollPosition < section.offsetTop + section.offsetHeight
+      ) {
+        setActiveSection(section.id);
+        break;
+      }
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  handleScroll();
+
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
     const toggleDarkMode = () => {
         setDarkMode(prev => !prev);
     };
@@ -115,14 +143,19 @@ const links = [
                         key={id}
                         whileHover={{scale:1.05}}
                         whileTap={{scale:0.95}}>
-                            <a href={`#${link}`}
-                            className="text-sm lg:text-base text-slate-700 
-                            dark:text-slate-300 hover:text-cyan-600
-                             dark:hover:text-cyan-400 transition-all duration-300
-                             font-medium relative group whitespace-nowrap
-                             hover:[text-shadow:0_0_8px_rgb(34_211_238)]">
-                                {text}
+                            <a
+                             href={`#${link}`}
+                             aria-current={activeSection === link ? "page" : undefined}
+                             className={`text-sm lg:text-base font-medium relative group whitespace-nowrap transition-all duration-300
+                             ${
+                             activeSection === link
+                             ? "text-cyan-500 dark:text-cyan-400 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-cyan-400"
+                             : "text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:[text-shadow:0_0_8px_rgb(34_211_238)]"
+                             }`}
+                             >
+                             {text}
                             </a>
+
                         </motion.li>
                     ))}
                 </ul>
@@ -175,14 +208,20 @@ const links = [
                                   animate={{opacity:1, x:0}}
                                   transition={{delay:0.1 + index * 0.05}}
                                   className="mb-2">
-                    <motion.a
-                    href={`#${link}`}
-                    onClick ={()=>setNav(false)}
-                    whileHover={{
-                    x:10,backgroundColor:'rgb(139,92,245,0.1)'}}
-                    className="block px-4 py-3 text-slate-800
-                        dark:text-white rounded-lg transition-colors
-                        duration-300 font-medium">
+                   <motion.a
+                      href={`#${link}`}
+                      onClick={() => setNav(false)}
+                      whileHover={{
+                      x: 10,
+                      backgroundColor: "rgb(139,92,245,0.1)",
+                      }}
+                      aria-current={activeSection === link ? "page" : undefined}
+                      className={`block px-4 py-3 rounded-lg transition-colors duration-300 font-medium ${
+                      activeSection === link
+                      ? "text-cyan-500 dark:text-cyan-400"
+                     : "text-slate-800 dark:text-white"
+                      }`}
+                       >
                             {text}
                     </motion.a>                
                                     </motion.li>

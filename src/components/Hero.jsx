@@ -9,6 +9,7 @@ const Hero = () => {
     <section
   id="home"
   className="
+    scroll-mt-28
     relative
     min-h-screen
     overflow-hidden

@@ -119,7 +119,7 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="relative overflow-hidden bg-slate-50 dark:bg-[#030712] py-24"
+      className="scroll-mt-28 relative overflow-hidden bg-slate-50 dark:bg-[#030712] py-24"
     >
       {/* Background Glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

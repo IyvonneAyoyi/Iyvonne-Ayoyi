@@ -125,7 +125,7 @@ function Skills() {
   return (
     <section
        id="skills"
-  className="relative overflow-hidden bg-slate-50 dark:bg-[#030712] py-24">
+  className="scroll-mt-28 relative overflow-hidden bg-slate-50 dark:bg-[#030712] py-24">
 
   <div className="absolute inset-0 overflow-hidden pointer-events-none">
   <div className="absolute top-0 left-20 w-80 h-80 rounded-full bg-cyan-500/10 blur-[130px]" />

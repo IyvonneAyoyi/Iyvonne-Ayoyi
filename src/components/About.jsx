@@ -42,6 +42,7 @@ const About = () => {
     <section
       id="about"
       className="
+        scroll-mt-28
         relative
         overflow-hidden
         bg-slate-50
